@@ -1,0 +1,119 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 0 0% 98%;
+    --primary-foreground: 240 5.9% 10%;
+
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+
+    --accent: 240 3.7% 15.9%;
+    --accent-foreground: 0 0% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 240 4.9% 83.9%;
+
+    --radius: 0.75rem;
+  }
+
+  @layer base {
+    * {
+      @apply border-border;
+    }
+  
+    body {
+      @apply bg-background text-horror-foreground antialiased font-body;
+      font-family: 'EB Garamond', serif;
+      cursor: url('/cursor-lantern.png'), auto;
+    }
+  }
+
+.lantern-light {
+  @apply animate-flicker;
+  box-shadow: 0 0 20px 5px rgba(234, 56, 76, 0.3), 
+              0 0 40px 10px rgba(234, 56, 76, 0.1);
+}
+
+
+
+.prompt-container {
+  background: rgba(26, 31, 44, 0.8);
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(126, 105, 171, 0.3);
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+}
+
+.text-shadow {
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.text-horror-shadow {
+  text-shadow: 0 2px 8px rgba(234, 56, 76, 0.5);
+}
+button,
+.btn,
+.button,
+a:hover {
+  cursor: url('/images/cursor-lantern-glow.png'), auto;
+}
+.glow-button {
+  @apply transition duration-300 ease-in-out;
+  box-shadow: 0 0 0 rgba(0, 0, 0, 0); /* start invisible */
+}
+
+.glow-button:hover {
+  box-shadow: 0 0 15px 5px rgba(215, 38, 61, 0.4), /* red glow */
+              0 0 30px 10px rgba(215, 38, 61, 0.2);
+}
+@keyframes lanternPulse {
+  0%, 100% {
+    filter: brightness(1);
+  }
+  50% {
+    filter: brightness(1.4);
+  }
+}
+
+button:hover,
+.btn:hover,
+.button:hover {
+  animation: lanternPulse 1.2s ease-in-out infinite;
+}
+.glow-button {
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.glow-button:hover {
+  box-shadow: 0 0 12px 4px rgba(255, 111, 0, 0.6),
+              0 0 24px 8px rgba(255, 111, 0, 0.3);
+}
+.hero-bg {
+  background-image: url('/images/tree-lantern-bg.png');
+  background-size: cover;
+  background-position: center;
+}
+
+}
